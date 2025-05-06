@@ -1,0 +1,4 @@
+package lib/github.com/leonardschneider/functor
+
+require {
+}
