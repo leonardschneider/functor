@@ -1,4 +1,4 @@
-package lib/github.com/leonardschneider/functor
+package github.com/leonardschneider/functor
 
 require {
 }
