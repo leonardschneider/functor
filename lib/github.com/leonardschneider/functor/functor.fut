@@ -18,6 +18,11 @@ module F = {
     unflatten: [s]t -> a
   }
 
+  let nil 't: F t () [0] = {
+    flatten = \_ -> [],
+    unflatten = \_ -> ()
+  }
+
   let length 't 'a [s] (_: F t a [s]) = s
 
   let flatten 't 'a [s] (f: F t a [s]) = f.flatten
