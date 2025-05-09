@@ -18,9 +18,14 @@ module F = {
     unflatten: [s]t -> a
   }
 
-  let nil 't: F t () [0] = {
+  let cst 't 'a (a0: a): F t a [0] = {
     flatten = \_ -> [],
-    unflatten = \_ -> ()
+    unflatten = \_ -> a0
+  }
+
+  let bimap 't 'a 'b [s] (f: a -> b) (g: b -> a) (p: F t a [s]): F t b [s] = {
+    flatten = \x -> x |> g |> p.flatten,
+    unflatten = \x -> x |> p.unflatten |> f
   }
 
   let length 't 'a [s] (_: F t a [s]) = s
